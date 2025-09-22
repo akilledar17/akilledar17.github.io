@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Archit Killedar - Aerospace & Computing</title>
+  <style>
+    /* Basic Reset & Fonts */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fafb url('https://cdn-icons-png.flaticon.com/512/686/686589.png') no-repeat bottom right;
+      background-size: 150px 150px;
+      color: #222;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header {
+      border-bottom: 2px solid #0077b6;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+    h1 {
+      margin: 0;
+      font-weight: 700;
+      color: #023e8a;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    h2 {
+      color: #0077b6;
+      border-left: 4px solid #0077b6;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    /* Vocabulary clickable words styling */
+    .vocab {
+      color: #0096c7;
+      cursor: pointer;
+      text-decoration: underline dotted;
+      position: relative;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background-color: #fff;
+      padding: 20px 25px;
+      border-radius: 8px;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      right: 10px; top: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: #0077b6;
+      font-weight: 700;
+    }
+    /* Images styling */
+    figure {
+      margin: 0 0 15px 0;
+      text-align: center;
+    }
+    figcaption {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 5px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    /* Video embed styling */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+      margin-bottom: 30px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Archit Killedar</h1>
+</header>
+
+<section>
+  <h2>What I Want to Do After High School</h2>
+  <p>
+    I want to study <span class="vocab" data-def="The science and technology of designing, building, and flying aircraft and spacecraft.">aerospace</span> because I am fascinated by how both <span class="vocab" data-def="Physical devices that can run programs, like computers or smartphones.">computing devices</span> and advanced technologies work together in aviation and space exploration. Just like how <span class="vocab" data-def="Data about data, such as descriptive info about a file or database row.">metadata</span> helps organize information, aerospace engineering helps organize the complex systems that allow planes and rockets to function safely.
+  </p>
+</section>
+
+<section>
+  <h2>Unit 1: Data Concepts</h2>
+  <figure>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Binary_digits.svg/320px-Binary_digits.svg.png" alt="Binary digits (bits)" />
+    <figcaption>Bits and bytes: the fundamental units of digital data.</figcaption>
+  </figure>
+  <p>
+    Data is stored and transmitted in <span class="vocab" data-def="A binary digit, either 0 or 1.">bits</span>, which combine into <span class="vocab" data-def="A sequence of 8 bits.">bytes</span>. When data is compressed, it can be either <span class="vocab" data-def="Compressing data in a way that preserves all data and allows full recovery of the original.">lossless</span> or <span class="vocab" data-def="Compressing data in a way that discards some data and makes it impossible to recover the original.">lossy</span>. Also, sometimes the precision of numbers can cause <span class="vocab" data-def="Error that results when the number of bits is not enough to represent the number with full precision.">roundoff</span> errors.
+  </p>
+</section>
+
+<section>
+  <h2>Unit 2: Computer Systems & Networks</h2>
+  <figure>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Internet_Connectivity_Scheme.svg/320px-Internet_Connectivity_Scheme.svg.png" alt="Computer Network Diagram" />
+    <figcaption>Network of interconnected computing devices passing data packets.</figcaption>
+  </figure>
+  <p>
+    A <span class="vocab" data-def="A group of interconnected computing devices capable of sending or receiving data.">computer network</span> is made of many <span class="vocab" data-def="Physical devices that can run a program (e.g., computer, smartphone).">computing devices</span> connected through various <span class="vocab" data-def="The series of connections between computing devices on a network, starting with the sender and ending with the receiver.">paths</span>. They communicate using a <span class="vocab" data-def="An agreed-upon set of rules that specify how systems behave and communicate.">protocol</span> like <span class="vocab" data-def="Used for transmitting and requesting web pages and media on the World Wide Web.">HTTP</span> and rely on <span class="vocab" data-def="Specialized computers that forward data across networks, choosing the fastest available path.">routers</span>. The internet is designed for <span class="vocab" data-def="The ability of a system to expand or contract to meet new demands.">scalability</span> and <span class="vocab" data-def="A system’s ability to continue functioning even if individual components fail.">fault tolerance</span> thanks to multiple <span class="vocab" data-def="Multiple pathways exist in the network so if one route fails, packets can take another.">redundancy</span>.
+  </p>
+</section>
+
+<section>
+  <h2>How the Internet Works</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/7_LPdttKXPc" title="How the Internet Works" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Modal container -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close vocabulary definition">&times;</button>
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+  </div>
+</div>
+
+<script>
+  // Vocabulary modal handling
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const closeBtn = modal.querySelector('.modal-close');
+
+  document.querySelectorAll('.vocab').forEach(el => {
+    el.addEventListener('click', () => {
+      modalTitle.textContent = el.textContent;
+      modalDesc.textContent = el.getAttribute('data-def');
+      modal.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Close modal on outside click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // Close modal on Esc key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+      modal.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
 
