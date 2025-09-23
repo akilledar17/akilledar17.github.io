@@ -55,6 +55,10 @@
       margin: 30px auto;
       border: 2px solid #ff4c4c;
     }
+    a {
+      color: #4caf50;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -66,7 +70,19 @@
   </section>
 
   <section>
-    <h2>Diagrams Related to Topics</h2>
+    <h2>Quick Reference</h2>
+    <ul>
+      <li><strong>✅ Name + Future Plans</strong></li>
+      <li><strong>✅ <a href="https://curriculum.code.org/csp/unit1/" target="_blank">Unit 1 Materials</a></strong></li>
+      <li><strong>✅ <a href="https://curriculum.code.org/csp/unit2/" target="_blank">Unit 2 Materials</a></strong></li>
+      <li><strong>✅ At least 2 meaningful pictures</strong></li>
+      <li><strong>✅ At least 1 embedded video</strong></li>
+      <li><strong>✅ At least 5 vocab words in game</strong></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Diagrams from Unit 1 & 2</h2>
     <div class="image-row">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Analog_vs_Digital_Data.png/600px-Analog_vs_Digital_Data.png" alt="Analog vs Digital">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Internet_Connectivity_Distribution_%282009%29.svg/640px-Internet_Connectivity_Distribution_%282009%29.svg.png" alt="Network Diagram">
@@ -101,31 +117,33 @@
       { word: "roundoff", definition: "Error due to limited bit precision." },
       { word: "protocol", definition: "Agreed-upon rules for communication." },
       { word: "bandwidth", definition: "Maximum transmission capacity." },
-      { word: "lossless", definition: "Compression with full data recovery." },
-      { word: "fault tolerant", definition: "Keeps working even if parts fail." },
       { word: "packet", definition: "Small chunk of transmitted data." },
+      { word: "metadata", definition: "Data about data." },
     ];
+
+    const planeImg = new Image();
+    planeImg.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Airplane_silhouette.png/128px-Airplane_silhouette.png";
 
     let planes = vocab.map((item, index) => ({
       ...item,
       x: -100 - Math.random() * 300,
-      y: 40 + index * 40,
+      y: 40 + index * 50,
       speed: 1 + Math.random() * 2,
       clicked: false
     }));
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       planes.forEach(plane => {
         if (!plane.clicked) {
-          ctx.fillStyle = "#ff4c4c";
-          ctx.fillRect(plane.x, plane.y, 60, 20);
+          ctx.drawImage(planeImg, plane.x, plane.y, 50, 30);
           ctx.fillStyle = "#fff";
-          ctx.fillText(plane.word, plane.x + 5, plane.y + 15);
+          ctx.fillText(plane.word, plane.x + 10, plane.y + 45);
           plane.x += plane.speed;
         } else {
           ctx.fillStyle = "#4caf50";
-          ctx.fillText(plane.definition, plane.x, plane.y + 15);
+          ctx.fillText(plane.definition, plane.x, plane.y + 20);
         }
 
         if (plane.x > canvas.width + 100) {
@@ -133,6 +151,7 @@
           plane.clicked = false;
         }
       });
+
       requestAnimationFrame(draw);
     }
 
@@ -142,13 +161,19 @@
       const y = e.clientY - rect.top;
 
       planes.forEach(plane => {
-        if (!plane.clicked && x >= plane.x && x <= plane.x + 60 && y >= plane.y && y <= plane.y + 20) {
+        if (
+          !plane.clicked &&
+          x >= plane.x && x <= plane.x + 50 &&
+          y >= plane.y && y <= plane.y + 30
+        ) {
           plane.clicked = true;
         }
       });
     });
 
-    draw();
+    planeImg.onload = () => {
+      draw();
+    };
   </script>
 
 </body>
