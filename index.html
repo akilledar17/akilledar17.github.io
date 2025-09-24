@@ -68,8 +68,8 @@
   <section>
     <h2>Diagrams Related to Topics</h2>
     <div class="image-row">
-      <img src="avd.jpg">
-      <img src="icd.png">
+      <img src="avd.jpg" alt="Analog vs Digital Diagram">
+      <img src="icd.png" alt="Internet Connectivity Diagram">
     </div>
   </section>
 
@@ -95,6 +95,9 @@
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
 
+    const planeImg = new Image();
+    planeImg.src = "goodplen.png"; // Make sure this image is in your repo root
+
     const vocab = [
       { word: "bit", definition: "A binary digit, either 0 or 1." },
       { word: "byte", definition: "A sequence of 8 bits." },
@@ -116,23 +119,32 @@
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       planes.forEach(plane => {
         if (!plane.clicked) {
-          ctx.fillStyle = "#ff4c4c";
-          ctx.fillRect(plane.x, plane.y, 60, 20);
-          ctx.fillStyle = "#fff";
-          ctx.fillText(plane.word, plane.x + 5, plane.y + 15);
+          // Draw the plane image
+          ctx.drawImage(planeImg, plane.x, plane.y, 60, 40);
+
+          // Draw vocab word on top
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "14px Roboto";
+          ctx.fillText(plane.word, plane.x + 5, plane.y + 25);
+
           plane.x += plane.speed;
         } else {
+          // Show definition when clicked
           ctx.fillStyle = "#4caf50";
-          ctx.fillText(plane.definition, plane.x, plane.y + 15);
+          ctx.font = "14px Roboto";
+          ctx.fillText(plane.definition, plane.x, plane.y + 20);
         }
 
+        // Wrap around when off screen
         if (plane.x > canvas.width + 100) {
           plane.x = -150;
           plane.clicked = false;
         }
       });
+
       requestAnimationFrame(draw);
     }
 
@@ -142,13 +154,20 @@
       const y = e.clientY - rect.top;
 
       planes.forEach(plane => {
-        if (!plane.clicked && x >= plane.x && x <= plane.x + 60 && y >= plane.y && y <= plane.y + 20) {
+        if (
+          !plane.clicked &&
+          x >= plane.x && x <= plane.x + 60 &&
+          y >= plane.y && y <= plane.y + 40
+        ) {
           plane.clicked = true;
         }
       });
     });
 
-    draw();
+    // Start game only after image loads
+    planeImg.onload = () => {
+      draw();
+    };
   </script>
 
 </body>
